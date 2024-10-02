@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 10-2 participation </title>
+    <style>
+        .styled-div {
+            color: blueviolet;
+            padding: 10px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class = "container" id = "div-container">
+        <!-- Where generated divs will go -->
+
+    </div>
+    <button id = "add-div-button"> Add a div </button>
+    <script>
+        //function to create a new div
+        function createDiv() {
+            const newDiv = document.createElement("div");
+            newDiv.className = "styled-div";
+            newDiv.textContent = "Imma new div";
+
+            // Add event listener
+            newDiv.addEventListener("mouseover", ()=> {
+                newDiv.style.backgroundColor = "#FFF000";
+            })
+            newDiv.addEventListener("mouseout", ()=> {
+                newDiv.style.backgroundColor = "";
+            })
+            document.getElementById("div-container").appendChild(newDiv);
+        }
+
+        function callBack() {
+            alert("The thing happened");
+        }
+
+        document.getElementById("add-div-button").addEventListener("click", createDiv);
+        
+        for(let index = 0; index < 5; index++) {
+            createDiv();
+        }
+    </script>
+</body>
+</html>
